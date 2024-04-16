@@ -9,10 +9,7 @@ export default function Inicio() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    // useEffect(() => {
-
-    //     localStorage.clear();
-    // }, []);
+  
 
     
     const handleRegistro = () => {
