@@ -23,7 +23,7 @@ export default function Registro() {
             return;
         }
         
-        const storedUsers = JSON.parse(sessionStorage.getItem("users")) || [];
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
         const user = storedUsers.find(u => u.username === username);
         if (user) {
             Swal.fire({
@@ -33,7 +33,7 @@ export default function Registro() {
             });
         } else {
             const updatedUsers = [...storedUsers, newUser];
-            sessionStorage.setItem("users", JSON.stringify(updatedUsers));
+            localStorage.setItem("users", JSON.stringify(updatedUsers));
             navigate("/");
         }
     };

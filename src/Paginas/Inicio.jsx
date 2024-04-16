@@ -9,10 +9,7 @@ export default function Inicio() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect(() => {
-        
-        localStorage.clear();
-    }, []);
+  
 
     
     const handleRegistro = () => {
@@ -22,7 +19,7 @@ export default function Inicio() {
     
     const handleIniciarSesion = () => {
         event.preventDefault();
-        const storedUsers = JSON.parse(sessionStorage.getItem("users")) || [];
+        const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
         const user = storedUsers.find(u => u.username === username && u.password === password);
         if (user) {
             navigate("/productos");
