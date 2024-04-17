@@ -6,19 +6,19 @@ const Informacion = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [busqueda, setBusqueda] = useState('');
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        const result = await response.json();
-        console.log( result); 
-        setProductos(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://fakestoreapi.com/products');
+      const result = await response.json();
+      console.log(result);
+      setProductos(result);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -38,7 +38,7 @@ const Informacion = () => {
 
   const productosFiltrados = productos.filter((producto) => {
     return producto.id.toString().includes(busqueda);
-    
+
   });
 
   return (
